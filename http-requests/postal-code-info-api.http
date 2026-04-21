@@ -1,0 +1,8 @@
+### valid CCA2 Country Code
+GET http://localhost:8080/api/v1/postalcodes/NL
+
+### invalid CCA2 country code > three characters
+GET http://localhost:8080/api/v1/postalcodes/NLD
+
+### invalid CCA2 country code > letters and digits
+GET http://localhost:8080/api/v1/postalcodes/N1
