@@ -1,10 +1,6 @@
-package nl.hakktastic.postcalcodeinfoapi.domain.internal;
+package nl.hakktastic.postcalcodeinfoapi.shared.domain;
 
-import org.springframework.modulith.NamedInterface;
-
-@NamedInterface
 public class PostalCodeInformationNotFoundException extends RuntimeException {
-
     public PostalCodeInformationNotFoundException(String message) {
         super(message);
     }

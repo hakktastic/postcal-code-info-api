@@ -1,4 +1,4 @@
-package nl.hakktastic.pensioenpotapi.shared.architecture.hexagonal;
+package nl.hakktastic.postcalcodeinfoapi.shared.architecture.hexagonal;
 
 import java.lang.annotation.*;
 

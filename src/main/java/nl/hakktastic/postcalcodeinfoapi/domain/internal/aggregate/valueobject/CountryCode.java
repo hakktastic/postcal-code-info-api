@@ -1,4 +1,4 @@
-package nl.hakktastic.postcalcodeinfoapi.domain.internal;
+package nl.hakktastic.postcalcodeinfoapi.domain.internal.aggregate.valueobject;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -7,6 +7,7 @@ import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import nl.hakktastic.postcalcodeinfoapi.shared.architecture.ddd.ValueObject;
 import nl.hakktastic.postcalcodeinfoapi.shared.domain.InvalidValueObjectException;
+import org.apache.commons.lang3.StringUtils;
 
 @Slf4j
 @Getter
@@ -21,11 +22,16 @@ public class CountryCode {
 
     public static CountryCode of(final String value) {
         log.debug("provided value='{}'", value);
-
+        shouldNotBeBlank(value);
         shouldBeExactlyTwoCharacters(value);
         shouldContainOnlyLetters(value);
-
         return new CountryCode(value);
+    }
+
+    private static void shouldNotBeBlank(String value) {
+        if(StringUtils.isBlank(value)){
+            throw new InvalidValueObjectException(String.format("provided value for countryCode='%s' should not be blank", value));
+        }
     }
 
     private static void shouldBeExactlyTwoCharacters(String value) {

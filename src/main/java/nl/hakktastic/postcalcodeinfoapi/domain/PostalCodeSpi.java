@@ -1,10 +1,13 @@
 package nl.hakktastic.postcalcodeinfoapi.domain;
 
+import nl.hakktastic.postcalcodeinfoapi.shared.architecture.hexagonal.Port;
+
 import java.util.Optional;
 
-public interface PostalCodeRepository {
+@Port
+public interface PostalCodeSpi {
 
-    Optional<PostalCode> findInfoByCountryCode(String value);
-
-    void add(PostalCode postalCode);
+    void addToRepository(PostalCodeView postalCodeView);
+    Optional<PostalCodeView> findFromRepositoryBy(String countryCode);
+    Optional<PostalCodeView> findFromExternalApiBy(String countryCode);
 }

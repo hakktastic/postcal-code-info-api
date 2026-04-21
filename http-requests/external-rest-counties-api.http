@@ -1,11 +1,5 @@
 ### GET request postalcode information for the Netherlands
 GET https://restcountries.com/v3.1/alpha/NL?fields=cca2,name,postalCode
 
-### GET request postalcode information for the UAE > no postal code information
-GET https://restcountries.com/v3.1/alpha/AE?fields=cca2,name,postalCode
-
-### GET request postalcode information for Aruba > no postal code information
+### GET request postalcode information for Aruba > has no postal code information
 GET https://restcountries.com/v3.1/alpha/AW?fields=cca2,name,postalCode
-
-###
-GET https://restcountries.com/v3.1/alpha/NL

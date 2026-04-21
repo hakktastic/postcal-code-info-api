@@ -1,8 +1,9 @@
-package nl.hakktastic.architecture;
+package nl.hakktastic.postcalcodeinfoapi.architecture;
 
 import lombok.extern.slf4j.Slf4j;
-import nl.hakktastic.pensioenpotapi.PensioenpotApiApplication;
+import nl.hakktastic.postcalcodeinfoapi.PostcalCodeInfoApiApplication;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.modulith.core.ApplicationModules;
 import org.springframework.modulith.docs.Documenter;
@@ -16,20 +17,18 @@ class VerifyModulesTest {
 
     @BeforeEach
     void beforeEach() {
-        modules = ApplicationModules.of(PensioenpotApiApplication.class);
+        modules = ApplicationModules.of(PostcalCodeInfoApiApplication.class);
     }
 
     @Test
     void verifyModules() {
 
-        modules.forEach(applicationModule -> log.info("Module: '{}', package: '{}'", applicationModule.getIdentifier(),
-                applicationModule.getBasePackage()));
-
+        modules.forEach(applicationModule -> log.info("Module: '{}', package: '{}'", applicationModule.getIdentifier(), applicationModule.getBasePackage()));
         modules.verify();
     }
 
     @Test
-//    @Disabled("run only if you want to generate documentation")
+    @Disabled("run only if you want to generate documentation")
     void writeDocumentation() {
 
         final var documenter = new Documenter(modules).writeDocumentation()
